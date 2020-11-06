@@ -1,0 +1,151 @@
+codigopr,nomepr,tipopr,carb,lip,prot
+1,Goiaba Vermelha,Fruta,5.8545,0.198,0.4905
+2,Canjica com Coco Ralado,Sobremesa,34.3858,5.834,3.8256
+3,Banana,Fruta,10.384,0.028,0.508
+4,Maçã,Fruta,9.09,0,0.174
+5,Arroz Doce com Coco,Sobremesa,32.5161,5.69,5.3135
+6,Salada de Frutas,Sobremesa,51.439,5.691,7.472
+7,Bambá de Couve,Guarnição,13.27465,3.3773,1.64915
+8,Creme de Abóbora com Milho Verde,Guarnição,16.5657,2.3337,3.2145
+9,Canjiquinha com Músculo e Hortaliças,Principal,9.5172,5.2834,7.8652
+10,Tutu de Feijão Carioca,Feijão,22.3221,4.0967,8.8181
+11,Feijão Tropeiro Carioca,Feijão,44.6953,4.4449,10.5136
+12,Vaca Atolada,Principal,15.7596,3.9788,8.1498
+13,Suco Concentrado de Caju,Suco,8.2764,0.08,0.1728
+14,Arroz Simples,Arroz,27.8051,2.1212,2.5761
+15,Salada de Alface com Tomate,Salada,0.957,0.0495,0.503
+16,Laranja,Fruta,5.37,0.078,0.624
+17,Feijão Maravilha,Feijão,38.6362,5.4584,12.8232
+18,Mamão,Fruta,4.176,0.048,0.184
+19,Salada de Cenoura,Salada,1.532,0.034,0.264
+20,Arroz Verde e Amarelo,Arroz,35.3229,3.1316,4.3939
+21,Almôndegas de Soja ao Molho,Principal,15.9029,3.5729,7.5497
+22,Carne moída com Batatas,Principal,3.9391,3.5437,5.5591
+23,Cuscuz com Sardinha,Principal,19.6136,2.1822,8.5476
+24,Estrogonofe de Frango,Principal,3.66145,5.5883,7.06285
+25,"Farofa com Carne, Ovos e Couve",Guarnição,39.2037,6.5671,11.0411
+26,Feijão Carioca Simples,Feijão,12.4831,1.2542,4.0661
+27,Feijão Carioca Batido,Feijão,12.4831,1.2542,4.0661
+28,Salada de Acelga e Cenoura,Salada,1.8435,0.042,0.414
+29,Banana Caramelizada,Sobremesa,8.6422,0.0235,0.3319
+30,Quibebe com Molho de Carne,Guarnição,8.9209,5.2899,7.8225
+31,Melancia,Fruta,4.477,0,0.484
+32,Arroz Popeye,Arroz,27.403,2.1538,2.8045
+33,Purê de Batata,Guarnição,9.3536,4.6448,1.2146
+34,Salada de Alface,Salada,0.486,0.024,0.338
+35,Carne moída com Quiabo,Principal,3.1609,5.1825,4.367
+36,Quibe de Forno,Principal,17.1446,4.4401,7.6018
+37,Quibebe,Guarnição,4.6534,3.1449,1.404
+38,Batata e Cenoura Cozidas,Guarnição,7.025,0.0255,0.906
+39,Escondidinho de Carne e Inhame,Principal,22.1871,5.4795,8.0047
+40,Salada de Acelga,Salada,0.6945,0.0165,0.216
+41,Mandioca Cozida,Guarnição,9.0425,2.075,0.2825
+42,Salada de Almeirão,Salada,0.668,0.044,0.354
+43,Refogado de Legumes,Guarnição,2.9306,2.0956,0.6934
+44,Ovos Mexidos,Principal,0.6491,4.2272,3.3276
+45,Linguica,Principal,0.2391,4.1118,1.9973
+46,Arroz com Lentilha,Arroz,40.2051,2.2752,7.2061
+47,Arroz á Grega,Arroz,34.7964,2.6184,5.1514
+48,Arroz Colorido,Arroz,30.6951,2.2082,3.1951
+49,Arroz com Banana,Arroz,32.9971,2.1352,2.8301
+50,Salada de Beterraba,Salada,2.222,0.018,0.39
+51,Arroz com Taioba,Arroz,32.2489,1.7048,3.5903
+52,Arroz com Brócolis,Arroz,32.8291,2.2322,3.7821
+53,Abacate,Fruta,4.824,6.72,0.992
+54,Pudim de Baunilha (mistura),Sobremesa,0.001,0.231,1.82
+55,Salada de Acelga com Alface,Salada,2.075,0.709,1.841
+56,Suco Concentrado de Goiaba,Suco,15.991,0.085,2.372
+57,Suco Concentrado de Maracujá,Suco,10.925,0.019,0.109
+58,Suco Natural de Abacaxi,Suco,6.165,0.06,0.43
+59,Gelatina de Uva (mistura),Sobremesa,8.922,0,0.889
+60,Farofa de Cenoura,Guarnição,13.951,2.059,0.3645
+61,Batata Rústica,Guarnição,5.9097,1.0035,0.7267
+62,Gelatina de Morango (mistura),Sobremesa,8.922,0,0.889
+63,Suco Natural de Laranja,Suco,17.295,0.12,1.59
+64,Salada de Couve,Salada,1.529,0.773,1.789
+65,Vagem e cenoura cozidas,Guarnição,3.903,0.102,0.933
+66,"Filé de Tilápia assado com batata, pimentão e tomate",Principal,7.5874,6.9276,6.3145
+67,Couve-flor gratinada,Guarnição,2.13,10.0979,3.9205
+68,Legumes Sauté (Batata Aipo e Brócolis),Guarnição,5.602,4.39,0.958
+69,Salada de Pepino com Tomate,Salada,1.257,0.255,0.799
+70,Mexerica,Fruta,14.01,0.195,0.975
+71,Carne de Panela,Principal,0.4161,6.1998,8.7283
+72,Carne bovina moída com cenoura e jiló,Principal,1.3082,6.414,8.0665
+73,Coxa e sobrecoxa ao molho,Principal,1.6045,16.4998,35.6401
+74,Coxa e sobrecoxa assada com batata doce,Principal,5.7485,18.5068,35.6491
+75,"Cubos bovinos xadrez (cenoura, repolho, brócolis e cebola)",Principal,1.6115,6.492,8.9095
+76,Filé de tilápia ao molho com tomate,Principal,5.1394,8.9201,5.9965
+77,Filé de tilápia assada com batata doce,Principal,9.8554,6.4676,4.8035
+78,Filé de frango grelhado,Principal,0.0885,5.2088,8.6291
+79,Frango em cubos refogado,Principal,0.0885,5.2088,8.6291
+80,Isca de lombo suíno acebolada,Principal,0.6816,6.6372,6.9356
+81,Isca de lombo suíno com brócolis,Principal,0.8945,6.6858,7.5251
+82,Picadinho de carne bovina acebolado,Principal,0.4425,4.448,8.4135
+83,Abóbora cabotiá refogada,Guarnição,3.521,1.2176,0.7342
+84,Batata doce refogada,Guarnição,8.637,1.0406,0.4122
+85,Pudim de Morango (mistura),Sobremesa,9.35,0,1.92
+86,Chuchu refogado,Guarnição,1.419,1.0196,0.2442
+87,Creme de milho,Guarnição,7.8954,8.7596,1.7094
+88,Farofa de cenoura com jiló,Guarnição,14.2605,2.07,0.4345
+89,Purê de inhame,Guarnição,13.938,4.428,1.25
+90,Purê de abóbora cabotiá,Guarnição,5.016,4.626,1.07
+91,Salada de acelga com chicória,Salada,2.159,0.713,1.731
+92,Salada de acelga com tomate,Salada,2.217,0.719,1.723
+93,"Salada de alface, tomate e pepino",Salada,2.185,0.721,1.947
+94,Salada de beterraba com acelga,Salada,3.811,0.703,1.893
+95,Salada de beterraba com repolho,Salada,3.657,0.709,1.781
+96,Salada de brócolis,Salada,1.469,0.717,1.943
+97,Salada de cenoura com tomate,Salada,2.823,0.731,1.699
+98,Salada de chicória com cenoura,Salada,2.765,0.725,1.707
+99,Salada de couve com tomate,Salada,2.157,0.807,2.009
+100,Salada de couve-flor com chuchu,Salada,2.395,0.717,1.737
+101,Pudim de Chocolate (mistura),Sobremesa,9.97,0,1.9
+102,Salada de repolho com tomate,Salada,2.063,0.725,1.611
+103,Salada de repolho com tomate e pepino,Salada,2.471,0.725,1.785
+104,Almôndegas ao Molho,Principal,3.23143,3.93561,8.24443
+105,Couve à Mineira,Guarnição,1.36095,0.86556,0.87297
+106,Repolho à Mineira,Guarnição,1.41295,0.74956,0.31997
+107,Carne Colorida,Principal,2.91128,4.23651,7.75588
+108,Frango com milho,Principal,1.351175,2.79065,8.867125
+109,Farofa de Beterraba,Guarnição,10.51845,1.04206,0.45947
+110,Frango com Quiabo,Principal,1.69593,8.05296,16.27383
+111,"Salada Mista (batata, cenoura e vagem)",Guarnição,3.905,0.745,0.65
+112,Batata Sauté,Guarnição,6.66875,0.8024,0.81105
+113,Frango Brasileirinho,Principal,2.335475,2.8129,9.208975
+114,Cenoura Sauté,Guarnição,2.316425,0.85304,0.402855
+115,Feijão Fradinho,Feijão,6.2252,1.0431,2.057
+116,Farofa de Banana,Guarnição,12.74595,1.03906,0.35747
+117,Batata com Orégano,Guarnição,5.1425,0.7002,0.6197
+118,Batata e Vagem cozidas,Guarnição,3.922,0.0336,0.6852
+119,Ovo Cozido,Principal,0.984,5.34,7.818
+120,Omelete de Legumes,Principal,2.759,6.3837,8.2024
+121,Iscas de Fígado,Principal,1.32863,3.92461,9.47793
+122,Tangerina,Fruta,14.415,0.105,1.275
+123,Abacaxi,Fruta,9.864,0.096,0.688
+124,Carne desfiada com mandioca,Principal,22.5963,6.5802,18.1705
+125,Almôndega,Principal,5.2308,4.9017,9.1535
+126,Arroz com Cenoura e Milho,Arroz,27.9083,2.3992,3.0395
+127,Caldo de Batata,Salada,6.9103,7.6894,18.2605
+128,Caldo de Mandioca,Salada,15.5023,7.8094,18.0045
+129,Carne Moída com Cenoura ,Principal,2.9263,4.4222,8.2765
+130,Carne Moída com Cenoura e Chuchu,Principal,3.9613,4.4372,8.4515
+131,Ensopado de Carne,Principal,1.4643,6.4102,17.5225
+132,Empadão de Frango,Principal,16.80994,7.82868,15.83392
+133,Ensopado de Frango,Principal,1.4643,5.3402,23.9575
+134,Farofa de Abóbora com Carne Moída,Guarnição,19.6823,5.7574,8.7665
+135,Frango Assado,Principal,1.9828,6.331,23.9446
+136,Frango Cozido,Principal,1.5343,5.3502,23.9875
+137,"Legumes na Manteiga (batata doce e inglesa, chuchu, cenoura )",Guarnição,12.1823,4.2167,1.4045
+138,Purê de Batata com Abóbora,Guarnição,9.1119,5.1844,2.9389
+139,Salada de Beterraba com Tomate,Salada,2.99,0.072,0.67
+140,"Salada de Alface, cenoura e milho",Salada,1.866,0.1465,0.4625
+141,Salada de Tomate,Salada,0.768,0.054,0.28
+142,Salada de Alface com cenoura,Salada,1.009,0.029,0.301
+143,Salpicão Simples,Guarnição,5.5905,1.803,7.9395
+144,Salada de Vagem com Tomate,Salada,1.303,0.071,0.459
+145,Melão,Fruta,6.024,0,0.544
+146,Manga,Fruta,29.025,0.255,0.615
+147,Rapadura,Sobremesa,13.6185,0.0105,0.1485
+148,Torta de Abacaxi,Sobremesa,42.72614,4.45748,3.51492
+149,Gelatina de Limão (mistura),Sobremesa,8.922,0,0.889
+150,Gelatina de Abacaxi (mistura),Sobremesa,8.922,0,0.889
