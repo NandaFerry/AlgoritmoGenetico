@@ -2,20 +2,22 @@
 Carolline Rodrigues, Fernanda Ferry, Vitória Maria e Yago Teixeira""" 
 import csv
 
+preparacoes = ['Arroz', 'Feijão', 'Salada', 'Guarnição', 'Principal', 'Suco', 'Sobremesa', 'Fruta']
+
 # O arquivo deve ser convertido em csv
 def sanitiza_dados():
   dados = {
-        'Arroz':{},
-        'Feijão': {},
-        'Salada': {},
-        'Guarnição': {},
-        'Principal': {},
-        'Suco': {},
-        'Sobremesa': {},
-        'Fruta': {}}
+        preparacoes[0]: {},
+        preparacoes[1]: {},
+        preparacoes[2]: {},
+        preparacoes[3]: {},
+        preparacoes[4]: {},
+        preparacoes[5]: {},
+        preparacoes[6]: {},
+        preparacoes[7]: {}}
 
   # Arroz, Feijão, Salada, Guarnição, Principal, Suco e Sobremesa
-  with open('/content/Entrada.csv') as entrada:
+  with open('Entrada.csv') as entrada:
     leitor = csv.reader(entrada, delimiter=',')
     count = 0
     for linha in leitor:
