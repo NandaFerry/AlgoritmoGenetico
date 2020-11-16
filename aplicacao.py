@@ -1,8 +1,9 @@
 """ Algoritmo Genético para gerar um cardápio nutricional implementado por: 
 Carolline Rodrigues, Fernanda Ferry, Vitória Maria e Yago Teixeira""" 
+
 import csv
 
-preparacoes = ['Arroz', 'Feijão', 'Salada', 'Guarnição', 'Principal', 'Suco', 'Sobremesa', 'Fruta']
+preparacoes = ['Arroz', 'Feijao', 'Salada', 'Guarnicao', 'Principal', 'Suco', 'Sobremesa', 'Fruta']
 
 # O arquivo deve ser convertido em csv
 def sanitiza_dados():
@@ -17,12 +18,12 @@ def sanitiza_dados():
         preparacoes[7]: {}}
 
   # Arroz, Feijão, Salada, Guarnição, Principal, Suco e Sobremesa
-  with open('Entrada.csv') as entrada:
+  with open('Entrada.csv', encoding="utf-8") as entrada:
     leitor = csv.reader(entrada, delimiter=',')
     count = 0
     for linha in leitor:
       if count != 0:
-        informacoes =  {'Código': linha[0], 'Carb': linha[3], 'Lip': linha[4], 'Pro': linha[5] }
+        informacoes =  {'Codigo': linha[0], 'Carb': linha[3], 'Lip': linha[4], 'Pro': linha[5] }
         dados[linha[2]][linha[1]] = informacoes
       count += 1
 
