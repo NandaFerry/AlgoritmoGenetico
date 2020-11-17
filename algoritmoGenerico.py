@@ -1,6 +1,5 @@
 import random
-from aplicacao import sanitiza_dados
-from aplicacao import preparacoes
+from sanitiza import sanitiza_dados, preparacoes
 
 dados = sanitiza_dados()
 
