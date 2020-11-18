@@ -16,23 +16,21 @@ class AlgoritmoGenetico():
         self._gerarPopulacao()
 
     def _gerarPopulacao(self):
-        self.populacao = [
-            [choice([i for i, d in enumerate(dados[p])]) for p in preparacoes] for i in range(self.tamanho_populacao)]
+        self.populacao = [[] for i in range(self.tamanho_populacao)]
 
         for individuo in self.populacao:
-            for i in individuo:
-                numero = float(i)
-                individuo_binario = self._converte_float_binario(numero)
+            refeicoes = [[choice([d for i, d in enumerate(dados[p])]) for p in preparacoes] for i in range(self.tamanho_populacao)]
+            individuo.append(refeicoes)
 
-                for binario in individuo_binario:
-                    individuo.append(binario)
-
-        for i in individuo:
-            print(i)
+        for f in individuo:
+            print(f)
 
     def _converte_float_binario(self, numero):
         binario = format(unpack('!I', pack('!f', numero))[0], '032b')
-        binario_sinal = f'+{binario}' if numero > 0 else f'-{binario}'
+        if numero > 0:
+            binario_sinal = f'+{str(binario)}'
+        else:
+            binario_sinal = f'-{str(binario)}'
 
         return binario_sinal
 
@@ -40,4 +38,4 @@ class AlgoritmoGenetico():
         saida = ''
 
 
-a = AlgoritmoGenetico(1, 1, 1, 1)
+a = AlgoritmoGenetico(2, 1, 1, 1)
