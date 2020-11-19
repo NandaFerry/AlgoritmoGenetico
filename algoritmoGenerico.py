@@ -8,6 +8,7 @@ _taxa_cruzamento = 0
 _max_geracoes = 0
 _populacao = []
 _individuo = []
+_avaliacao = []
 
 # Iniciando as variáveis
 def inicia(tamanho_populacao, taxa_mutacao, taxa_cruzamento, max_geracoes):
@@ -34,7 +35,7 @@ def gerar_populacao():
     return _individuo[0]
 
 # Minimizar o erro nutricional carb - 65, prot - 12,5 e lip - 10
-def calcula_erro_nutricional(refeicao):
+def _calcula_erro_nutricional(refeicao):
     carboidratos = 0
     proteinas = 0
     lipidios = 0
@@ -61,6 +62,8 @@ def calcula_erro_nutricional(refeicao):
     return avaliacao
 
 def avaliar(populacao_inicial):
+    global _avaliacao
 
-    return 1
+    for p in populacao_inicial:
+        _avaliacao.append(_calcula_erro_nutricional(p))
     
