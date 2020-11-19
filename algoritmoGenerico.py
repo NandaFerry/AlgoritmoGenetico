@@ -56,9 +56,9 @@ def _calcula_erro_nutricional(refeicao):
         contador += 1
 
     avaliacao = {
-        'Total_Carb': round(carboidratos - 65, 2), 
-        'Total_Prot': round(proteinas - 12.5, 2),
-        'Total_Lip': round(lipidios - 10, 2)
+        'Total_Carb': round(carboidratos - 65, 2),
+        'Total_Lip': round(lipidios - 10, 2),
+        'Total_Prot': round(proteinas - 12.5, 2)
         }
 
     return avaliacao
@@ -71,10 +71,10 @@ def avaliar(populacao_inicial):
         _avaliacao.append(_calcula_erro_nutricional(p))
 
 # Busca os individuos com as melhores avaliações dentro da população.
-def encontra_individuo_mais_apto(populacao_inicial):
+def encontra_individuo_mais_apto(populacao):
     # Como são duas refeições prescisamos de dois inidivíduos mínimos diferentes.
-    populacao_inicial = _encontra_valores_minimos(populacao_inicial)
-    populacao_inicial = _encontra_valores_minimos(populacao_inicial)
+    populacao = _encontra_valores_minimos(populacao)
+    populacao = _encontra_valores_minimos(populacao)
 
     return _escolhidos
 
@@ -87,7 +87,7 @@ def _verifica_menor_valor_nutricional(carboidratos, lipidios, proteinas, c):
     return menor_carb and menor_prot and menor_lip
 
 # Retorna o individuo com menor avaliação nutricional da população.
-def _encontra_valores_minimos(populacao_inicial):
+def _encontra_valores_minimos(populacao):
     global _escolhidos
 
     escolhido = []
@@ -95,7 +95,7 @@ def _encontra_valores_minimos(populacao_inicial):
     lipidios = carboidratos
 
     # Junta os arrays de população_inicial e avaliacao.
-    candidatos = zip(populacao_inicial, _avaliacao)
+    candidatos = zip(populacao, _avaliacao)
 
     # Verificando se o candidato atual(c) tem os menores valores.
     for c in candidatos:
@@ -113,23 +113,28 @@ def _encontra_valores_minimos(populacao_inicial):
 
     _escolhidos.append(escolhido)
     # Deleta o escolhido da população inicial.
-    del populacao_inicial[populacao_inicial.index(escolhido[0])]
+    del populacao[populacao.index(escolhido[0])]
+    del _avaliacao[_avaliacao.index(escolhido[1])]
 
-    return populacao_inicial
+    return populacao
 
 def seleciona(populacao_inicial):
     # Junta os arrays de população_inicial e avaliacao.
     candidatos = zip(populacao_inicial, _avaliacao)
+    candidatos = list(candidatos)
 
-    individuo_1 = candidatos[randint(0, _tamanho_populacao - 1)]
-    individuo_2 = candidatos[randint(0, _tamanho_populacao - 1)]
+    individuo_1 = choice(candidatos)
+    individuo_2 = choice(candidatos)
 
-    comparacao_carb = individuo_1[1]['Total_Carb'] < individuo_1[2]['Total_Carb'] 
-    comparacao_prot = individuo_1[1]['Total_Prot'] < individuo_1[2]['Total_Prot']
-    comparacao_lip = individuo_1[1]['Total_Lip'] < individuo_1[2]['Total_Lip'] 
+    comparacao_carb = individuo_2[1]['Total_Carb'] < individuo_1[1]['Total_Carb']
+    comparacao_prot = individuo_2[1]['Total_Prot'] < individuo_1[1]['Total_Prot']
+    comparacao_lip = individuo_2[1]['Total_Lip'] < individuo_1[1]['Total_Lip']
 
     if (comparacao_carb and comparacao_prot) or (comparacao_carb and comparacao_lip) or \
         (comparacao_lip and comparacao_prot):
-        return individuo_1
+        return individuo_2
 
-    return individuo_2
+    return individuo_1
+
+def crossover(pai, mae):
+    ponto_de_corte = randint(0, len(pai) - 1)
