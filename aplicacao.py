@@ -1,10 +1,10 @@
-""" Algoritmo Genético para gerar um cardápio nutricional implementado por: 
-Carolline Rodrigues, Fernanda Ferry, Vitória Maria, Jefferson e Yago Teixeira""" 
+""" Algoritmo Genético para gerar um cardápio nutricional implementado por:
+Carolline Rodrigues, Fernanda Ferry, Vitória Maria, Jefferson e Yago Teixeira"""
 
 from algoritmoGenerico import gerar_populacao, inicia, avaliar,\
     encontra_individuo_mais_apto
 
-tamanho_populacao = 2 # Tamanho da população inicial
+tamanho_populacao = 3# Tamanho da população inicial
 taxa_mutacao = 1 # Taxa de mutação
 taxa_cruzamento = 1 # Taxa de cruzamento
 max_geracoes = 1 # Máximo de vezes que serão geradas as populações
@@ -20,7 +20,11 @@ avaliar(populacao_inicial)
 
 for i in range(max_geracoes):
     # Encontra o individuo com a menor avaliação
-    for individuo in encontra_individuo_mais_apto(populacao_inicial):
-        print( 'Resultado {}: {}'.format(i, individuo) )
+    individuos = encontra_individuo_mais_apto(populacao_inicial)
 
-    nova_populacao = []
+    for individuo in individuos:
+        # Imprimindo os resultados começando com a população inicial
+        print('Resultado {}: {}\n'.format(i, individuo))
+
+        # Inicializando uma nova população
+        nova_populacao = []

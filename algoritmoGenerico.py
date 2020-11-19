@@ -72,36 +72,45 @@ def avaliar(populacao_inicial):
 
 # Busca os individuos com as melhores avaliações dentro da população
 def encontra_individuo_mais_apto(populacao_inicial):
+    # Como são duas refeições prescisamos de dois inidivíduos mínimos diferentes
+    populacao_inicial = _encontra_valores_minimos(populacao_inicial)
+    populacao_inicial = _encontra_valores_minimos(populacao_inicial)
+
+    return _escolhidos
+
+# Verifica se os valores de carb, lip e proteinas atuais são os menores
+def _verifica_menor_valor_nutricional(carboidratos, lipidios, proteinas, c):
+    menor_carb = c[1]['Total_Carb'] < carboidratos
+    menor_prot = c[1]['Total_Prot'] < proteinas
+    menor_lip = c[1]['Total_Lip'] < lipidios
+
+    return menor_carb and menor_prot and menor_lip
+
+# Retorna o individuo com menor avaliação nutricional da população
+def _encontra_valores_minimos(populacao_inicial):
     global _escolhidos
 
-    quantidade = 0
-    index = 0
     escolhido = []
+    carboidratos, proteinas = 1000000000, 1000000000
+    lipidios = carboidratos
 
     candidatos = zip(populacao_inicial, _avaliacao)
 
-    while quantidade < 2:
-        carboidratos = 10000000000000
-        proteinas = carboidratos
-        lipidios = carboidratos
+    for c in candidatos:
+        if _verifica_menor_valor_nutricional(carboidratos, lipidios, proteinas, c):
+            if not _escolhidos:
+                escolhido = c
+                carboidratos = c[1]['Total_Carb']
+                proteinas = c[1]['Total_Prot']
+                lipidios = c[1]['Total_Lip']
+            elif _escolhidos[0] != c:
+                escolhido = c
+                carboidratos = c[1]['Total_Carb']
+                proteinas = c[1]['Total_Prot']
+                lipidios = c[1]['Total_Lip']
 
-        for c in candidatos:
-            menor_carb = c[1]['Total_Carb'] < carboidratos
-            menor_prot = c[1]['Total_Prot'] < proteinas
-            menor_lip = c[1]['Total_Lip'] < lipidios
+    _escolhidos.append(escolhido)
+    # Deleta o escolhido da população inicial
+    del populacao_inicial[populacao_inicial.index(escolhido[0])]
 
-            if menor_carb and menor_prot and menor_lip:
-                if len(_escolhidos) == 0:
-                    escolhido = c
-                    carboidratos = c[1]['Total_Carb']
-                    proteinas = c[1]['Total_Prot']
-                    lipidios = c[1]['Total_Lip']
-                elif _escolhidos[0] != c:
-                    escolhido = c
-                    carboidratos = c[1]['Total_Carb']
-                    proteinas = c[1]['Total_Prot']
-                    lipidios = c[1]['Total_Lip']
-        quantidade += 1
-        _escolhidos.append(escolhido)
-
-    return _escolhidos
+    return populacao_inicial
