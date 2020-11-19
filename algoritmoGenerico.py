@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, randint
 from sanitiza import sanitiza_dados, preparacoes
 
 # Inicializando as váriaveis de uso global.
@@ -116,3 +116,20 @@ def _encontra_valores_minimos(populacao_inicial):
     del populacao_inicial[populacao_inicial.index(escolhido[0])]
 
     return populacao_inicial
+
+def seleciona(populacao_inicial):
+    # Junta os arrays de população_inicial e avaliacao.
+    candidatos = zip(populacao_inicial, _avaliacao)
+
+    individuo_1 = candidatos[randint(0, _tamanho_populacao - 1)]
+    individuo_2 = choice(candidatos)
+
+    comparacao_carb = individuo_1[1]['Total_Carb'] < individuo_1[2]['Total_Carb'] 
+    comparacao_prot = individuo_1[1]['Total_Prot'] < individuo_1[2]['Total_Prot']
+    comparacao_lip = individuo_1[1]['Total_Lip'] < individuo_1[2]['Total_Lip'] 
+
+    if (comparacao_carb and comparacao_prot) or (comparacao_carb and comparacao_lip) or \
+        (comparacao_lip and comparacao_prot):
+        return individuo_1
+
+    return individuo_2
