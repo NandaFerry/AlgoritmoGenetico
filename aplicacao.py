@@ -1,7 +1,7 @@
 """ Algoritmo Genético para gerar um cardápio nutricional implementado por:
 Carolline Rodrigues, Fernanda Ferry, Vitória Maria, Jefferson e Yago Teixeira"""
 
-from algoritmoGenerico import gerar_populacao, inicia, avaliar, encontra_individuo_mais_apto, seleciona
+from algoritmoGenerico import gerar_populacao, inicia, avaliar, encontra_individuo_mais_apto, seleciona, crossover
 
 tamanho_populacao = 5
 taxa_mutacao = 1
@@ -38,3 +38,9 @@ for i in range(max_geracoes):
         mae = seleciona(populacao)
 
         # Realizar o crossover dos pais e gerar os filhos.
+        filho_1, filho_2 = crossover(pai, mae)
+
+        print(filho_1)
+        print(filho_2)
+
+        break

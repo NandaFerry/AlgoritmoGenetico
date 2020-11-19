@@ -137,4 +137,14 @@ def seleciona(populacao_inicial):
     return individuo_1
 
 def crossover(pai, mae):
-    ponto_de_corte = randint(0, len(pai) - 1)
+    if randint(1, 100) <= _taxa_cruzamento:
+        ponto_de_corte = randint(0, 7)
+
+        filho_1 = pai[0][:ponto_de_corte] + mae[0][ponto_de_corte:]
+        filho_2 = mae[0][:ponto_de_corte] + pai[0][ponto_de_corte:]    
+
+    else:
+        filho_1 = pai
+        filho_2 = mae
+
+    return(filho_1, filho_2)
