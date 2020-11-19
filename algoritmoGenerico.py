@@ -1,6 +1,7 @@
 from random import choice
 from sanitiza import sanitiza_dados, preparacoes
 
+# Inicializando as váriaveis de uso global.
 dados = sanitiza_dados()
 _tamanho_populacao = 0
 _taxa_mutacao = 0
@@ -10,10 +11,10 @@ _populacao, _individuo = [], []
 _avaliacao = []
 _escolhidos = []
 
-# Iniciando as variáveis
+# Iniciando as variáveis.
 def inicia(tamanho_populacao, taxa_mutacao, taxa_cruzamento, max_geracoes):
     global _tamanho_populacao, _taxa_mutacao, _taxa_cruzamento, _max_geracoes
-    
+
     _tamanho_populacao = tamanho_populacao
     _taxa_mutacao = taxa_mutacao
     _taxa_cruzamento = taxa_cruzamento
@@ -23,18 +24,18 @@ def inicia(tamanho_populacao, taxa_mutacao, taxa_cruzamento, max_geracoes):
 def gerar_populacao():
     global _individuo
 
-    # Inicializando uma população com o _tamanho_populacao
+    # Inicializando uma população com o _tamanho_populacao.
     _populacao = [[] for i in range(_tamanho_populacao)]
 
-    # Gerando as refeições aleatoriamente
+    # Gerando as refeições aleatoriamente.
     for p in _populacao:
         refeicoes = [
             [choice([d for i, d in enumerate(dados[p])]) for p in preparacoes] for i in range(_tamanho_populacao)]
         _individuo.append(refeicoes)
-    
+
     return _individuo[0]
 
-# Minimizar o erro nutricional carb - 65, prot - 12,5 e lip - 10
+# Minimizar o erro nutricional carb - 65, prot - 12,5 e lip - 10.
 def _calcula_erro_nutricional(refeicao):
     carboidratos = 0
     proteinas = 0
@@ -44,8 +45,7 @@ def _calcula_erro_nutricional(refeicao):
     tipo = len(preparacoes) - 1
     contador = 0
 
-    """ Somando os valores totais de carboidratos, proteinas e lipidios
-        totais da refeição.""" 
+    # Somando os valores totais de carboidratos, proteinas e lipidios totais da refeição.
     for r in refeicao:
         if contador > tipo:
             break
@@ -63,22 +63,22 @@ def _calcula_erro_nutricional(refeicao):
 
     return avaliacao
 
-# Avalia os individuos da população
+# Avalia os individuos da população.
 def avaliar(populacao_inicial):
     global _avaliacao
 
     for p in populacao_inicial:
         _avaliacao.append(_calcula_erro_nutricional(p))
 
-# Busca os individuos com as melhores avaliações dentro da população
+# Busca os individuos com as melhores avaliações dentro da população.
 def encontra_individuo_mais_apto(populacao_inicial):
-    # Como são duas refeições prescisamos de dois inidivíduos mínimos diferentes
+    # Como são duas refeições prescisamos de dois inidivíduos mínimos diferentes.
     populacao_inicial = _encontra_valores_minimos(populacao_inicial)
     populacao_inicial = _encontra_valores_minimos(populacao_inicial)
 
     return _escolhidos
 
-# Verifica se os valores de carb, lip e proteinas atuais são os menores
+# Verifica se os valores de carb, lip e proteinas atuais são os menores.
 def _verifica_menor_valor_nutricional(carboidratos, lipidios, proteinas, c):
     menor_carb = c[1]['Total_Carb'] < carboidratos
     menor_prot = c[1]['Total_Prot'] < proteinas
@@ -86,7 +86,7 @@ def _verifica_menor_valor_nutricional(carboidratos, lipidios, proteinas, c):
 
     return menor_carb and menor_prot and menor_lip
 
-# Retorna o individuo com menor avaliação nutricional da população
+# Retorna o individuo com menor avaliação nutricional da população.
 def _encontra_valores_minimos(populacao_inicial):
     global _escolhidos
 
@@ -94,8 +94,10 @@ def _encontra_valores_minimos(populacao_inicial):
     carboidratos, proteinas = 1000000000, 1000000000
     lipidios = carboidratos
 
+    # Junta os arrays de população_inicial e avaliacao.
     candidatos = zip(populacao_inicial, _avaliacao)
 
+    # Verificando se o candidato atual(c) tem os menores valores.
     for c in candidatos:
         if _verifica_menor_valor_nutricional(carboidratos, lipidios, proteinas, c):
             if not _escolhidos:
@@ -110,7 +112,7 @@ def _encontra_valores_minimos(populacao_inicial):
                 lipidios = c[1]['Total_Lip']
 
     _escolhidos.append(escolhido)
-    # Deleta o escolhido da população inicial
+    # Deleta o escolhido da população inicial.
     del populacao_inicial[populacao_inicial.index(escolhido[0])]
 
     return populacao_inicial
