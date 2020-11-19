@@ -1,41 +1,66 @@
 from random import choice
 from sanitiza import sanitiza_dados, preparacoes
-from struct import unpack, pack
 
 dados = sanitiza_dados()
+_tamanho_populacao = 0
+_taxa_mutacao = 0
+_taxa_cruzamento = 0
+_max_geracoes = 0
+_populacao = []
+_individuo = []
 
-class AlgoritmoGenetico():
+# Iniciando as variáveis
+def inicia(tamanho_populacao, taxa_mutacao, taxa_cruzamento, max_geracoes):
+    global _tamanho_populacao, _taxa_mutacao, _taxa_cruzamento, _max_geracoes
+    
+    _tamanho_populacao = tamanho_populacao
+    _taxa_mutacao = taxa_mutacao
+    _taxa_cruzamento = taxa_cruzamento
+    _max_geracoes = max_geracoes
 
-    def __init__(self, tamanho_populacao, taxa_mutacao, taxa_cruzamento, limite):
-        self.tamanho_populacao = tamanho_populacao
-        self.taxa_mutacao = taxa_mutacao
-        self.taxa_cruzamento = taxa_cruzamento
-        self.limite = limite
-        self.populacao = []
+# Gerando a população inicial
+def gerar_populacao():
+    global _individuo
 
-        self._gerarPopulacao()
+    # Inicializando uma população com o _tamanho_populacao
+    _populacao = [[] for i in range(_tamanho_populacao)]
 
-    def _gerarPopulacao(self):
-        self.populacao = [[] for i in range(self.tamanho_populacao)]
+    # Gerando as refeições aleatoriamente
+    for p in _populacao:
+        refeicoes = [
+            [choice([d for i, d in enumerate(dados[p])]) for p in preparacoes] for i in range(_tamanho_populacao)]
+        _individuo.append(refeicoes)
+    
+    return _individuo[0]
 
-        for individuo in self.populacao:
-            refeicoes = [[choice([d for i, d in enumerate(dados[p])]) for p in preparacoes] for i in range(self.tamanho_populacao)]
-            individuo.append(refeicoes)
+# Minimizar o erro nutricional carb - 65, prot - 12,5 e lip - 10
+def calcula_erro_nutricional(refeicao):
+    carboidratos = 0
+    proteinas = 0
+    lipidios = 0
 
-        for f in individuo:
-            print(f)
+    p = preparacoes
+    tipo = len(preparacoes) - 1
+    contador = 0
 
-    def _converte_float_binario(self, numero):
-        binario = format(unpack('!I', pack('!f', numero))[0], '032b')
-        if numero > 0:
-            binario_sinal = f'+{str(binario)}'
-        else:
-            binario_sinal = f'-{str(binario)}'
+    for r in refeicao[0]:
+        if contador > tipo:
+            break
+        carboidratos += float(dados[p[contador]][r]['Carb'])
+        proteinas += float(dados[p[contador]][r]['Pro'])
+        lipidios += float(dados[p[contador]][r]['Lip'])
 
-        return binario_sinal
+        contador += 1
 
-    def descrever(self):
-        saida = ''
+    avaliacao = {
+        'Total_Carb': round(carboidratos - 65, 2), 
+        'Total_Prot': round(proteinas - 12.5, 2),
+        'Total_Lip': round(lipidios - 10, 2)
+        }
 
+    return avaliacao
 
-a = AlgoritmoGenetico(2, 1, 1, 1)
+def avaliar(populacao_inicial):
+
+    return 1
+    
