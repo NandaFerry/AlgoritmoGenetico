@@ -5,7 +5,7 @@ from algoritmoGenerico import gerar_populacao, inicia, avaliar, encontra_individ
 
 tamanho_populacao = 5
 taxa_mutacao = 1
-taxa_cruzamento = 1
+taxa_cruzamento = 45
 max_geracoes = 1
 
 # Iniciando as variáveis.
@@ -40,7 +40,7 @@ for i in range(max_geracoes):
         # Realizar o crossover dos pais e gerar os filhos.
         filho_1, filho_2 = crossover(pai, mae)
 
-        print(filho_1)
-        print(filho_2)
+        print(f'\nFILHO 1: {filho_1}')
+        print(f'\nFILHO 2: {filho_2}')
 
         break

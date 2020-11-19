@@ -140,8 +140,9 @@ def crossover(pai, mae):
     if randint(1, 100) <= _taxa_cruzamento:
         ponto_de_corte = randint(0, 7)
 
-        filho_1 = pai[0][:ponto_de_corte] + mae[0][ponto_de_corte:]
-        filho_2 = mae[0][:ponto_de_corte] + pai[0][ponto_de_corte:]    
+        filho_1 = [*pai[0][:ponto_de_corte], *mae[0][ponto_de_corte:]]
+
+        filho_2 = [*mae[0][:ponto_de_corte], *pai[0][ponto_de_corte:]]
 
     else:
         filho_1 = pai
