@@ -6,9 +6,9 @@ _tamanho_populacao = 0
 _taxa_mutacao = 0
 _taxa_cruzamento = 0
 _max_geracoes = 0
-_populacao = []
-_individuo = []
+_populacao, _individuo = [], []
 _avaliacao = []
+_escolhidos = []
 
 # Iniciando as variáveis
 def inicia(tamanho_populacao, taxa_mutacao, taxa_cruzamento, max_geracoes):
@@ -44,7 +44,9 @@ def _calcula_erro_nutricional(refeicao):
     tipo = len(preparacoes) - 1
     contador = 0
 
-    for r in refeicao[0]:
+    """ Somando os valores totais de carboidratos, proteinas e lipidios
+        totais da refeição.""" 
+    for r in refeicao:
         if contador > tipo:
             break
         carboidratos += float(dados[p[contador]][r]['Carb'])
@@ -61,9 +63,45 @@ def _calcula_erro_nutricional(refeicao):
 
     return avaliacao
 
+# Avalia os individuos da população
 def avaliar(populacao_inicial):
     global _avaliacao
 
     for p in populacao_inicial:
         _avaliacao.append(_calcula_erro_nutricional(p))
-    
+
+# Busca os individuos com as melhores avaliações dentro da população
+def encontra_individuo_mais_apto(populacao_inicial):
+    global _escolhidos
+
+    quantidade = 0
+    index = 0
+    escolhido = []
+
+    candidatos = zip(populacao_inicial, _avaliacao)
+
+    while quantidade < 2:
+        carboidratos = 10000000000000
+        proteinas = carboidratos
+        lipidios = carboidratos
+
+        for c in candidatos:
+            menor_carb = c[1]['Total_Carb'] < carboidratos
+            menor_prot = c[1]['Total_Prot'] < proteinas
+            menor_lip = c[1]['Total_Lip'] < lipidios
+
+            if menor_carb and menor_prot and menor_lip:
+                if len(_escolhidos) == 0:
+                    escolhido = c
+                    carboidratos = c[1]['Total_Carb']
+                    proteinas = c[1]['Total_Prot']
+                    lipidios = c[1]['Total_Lip']
+                elif _escolhidos[0] != c:
+                    escolhido = c
+                    carboidratos = c[1]['Total_Carb']
+                    proteinas = c[1]['Total_Prot']
+                    lipidios = c[1]['Total_Lip']
+        quantidade += 1
+        _escolhidos.append(escolhido)
+
+    return _escolhidos
