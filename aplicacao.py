@@ -17,6 +17,8 @@ populacao_inicial = gerar_populacao()
 # Avalia a população inicial
 avaliar(populacao_inicial)
 
+populacao_total = populacao_inicial 
+
 for i in range(max_geracoes):
     # Encontra o individuo com a menor avaliação
     individuos = encontra_individuo_mais_apto(populacao_inicial)
@@ -31,5 +33,5 @@ for i in range(max_geracoes):
     while len(nova_populacao) < tamanho_populacao:
 
         # Selecionando os 'pais'.
-        pai = seleciona(populacao_inicial)
-        mae = seleciona(populacao_inicial)
+        pai = seleciona(populacao_total)
+        mae = seleciona(populacao_total)

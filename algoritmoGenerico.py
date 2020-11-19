@@ -122,7 +122,7 @@ def seleciona(populacao_inicial):
     candidatos = zip(populacao_inicial, _avaliacao)
 
     individuo_1 = candidatos[randint(0, _tamanho_populacao - 1)]
-    individuo_2 = choice(candidatos)
+    individuo_2 = candidatos[randint(0, _tamanho_populacao - 1)]
 
     comparacao_carb = individuo_1[1]['Total_Carb'] < individuo_1[2]['Total_Carb'] 
     comparacao_prot = individuo_1[1]['Total_Prot'] < individuo_1[2]['Total_Prot']
