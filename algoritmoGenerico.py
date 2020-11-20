@@ -119,24 +119,24 @@ def _encontra_valores_minimos(populacao):
     return populacao
 
 def seleciona(populacao_inicial):
-    # Junta os arrays de população_inicial e avaliacao.
+    pai = _retorna_aleatorio(populacao_inicial)
+    mae = _retorna_aleatorio(populacao_inicial)
+
+    return pai[0], mae[0]
+
+def _retorna_aleatorio(populacao_inicial):
     candidatos = zip(populacao_inicial, _avaliacao)
-    candidatos = list(candidatos)
+    contador = 0
+    index = randint(0, len(populacao_inicial) - 1)
 
-    individuo_1 = choice(candidatos)
-    individuo_2 = choice(candidatos)
-
-    comparacao_carb = individuo_2[1]['Total_Carb'] < individuo_1[1]['Total_Carb']
-    comparacao_prot = individuo_2[1]['Total_Prot'] < individuo_1[1]['Total_Prot']
-    comparacao_lip = individuo_2[1]['Total_Lip'] < individuo_1[1]['Total_Lip']
-
-    if (comparacao_carb and comparacao_prot) or (comparacao_carb and comparacao_lip) or \
-        (comparacao_lip and comparacao_prot):
-        return individuo_2
-
-    return individuo_1
-
+    # Verificando se o candidato atual(c) tem os menores valores.
+    for c in candidatos:
+        if contador == index:
+            return c
+        contador += 1
+    
 def crossover(pai, mae):
+    # Caso o crossover seja aplicado os pais trocam as caldas para gerar os filhos.
     if randint(1, 100) <= _taxa_cruzamento:
         ponto_de_corte = randint(0, 7)
 
@@ -144,8 +144,25 @@ def crossover(pai, mae):
 
         filho_2 = [*mae[0][:ponto_de_corte], *pai[0][ponto_de_corte:]]
 
+    # Caso contrário os filhos são as cópias dos pais.
     else:
-        filho_1 = pai
-        filho_2 = mae
+        filho_1 = pai[0]
+        filho_2 = mae[0]
 
     return(filho_1, filho_2)
+
+# Realiza a mutação de um individuo
+def mutacao(individuo):
+    if randint(1, 100) <= _taxa_mutacao:
+
+        tipo = randint(0, 7)
+
+        nova_opcao = dados[preparacoes[tipo]]
+        a = list(nova_opcao.keys())
+        t = randint(0, len(a) - 1)
+
+        individuo[tipo] =  a[t]
+
+        return individuo
+    else:
+        return individuo
